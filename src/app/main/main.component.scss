@@ -1,0 +1,90 @@
+.back{
+    padding: 1%;
+}
+.container{
+    max-width: 100vw;
+    margin: 0px;
+    padding: 0px;
+}
+.list{
+    height: 80vh;
+    padding: 25px;
+}
+.title{
+    cursor: pointer;
+    background: white;
+    border-radius: 10px;
+    width: 100%;
+    p{
+        margin-bottom: 0;
+    }
+}
+.row{
+    justify-content: space-evenly;
+    .list{
+        border-radius: 1%;
+        box-shadow: 5px 5px 30px #A4A4A4;
+        background-color: #D8D8D8;
+        .itemList{
+            margin-top: 15px;
+            &:hover{
+                .title{
+                    box-shadow: 5px 5px 30px #A4A4A4;
+                    
+                }
+                .profileImg{
+                    img{
+                        box-shadow: 5px 5px 30px #A4A4A4;
+                    }
+                }
+            }
+        }
+    }
+}
+.itemList{
+    .profileImg{
+        width: 10%;
+        cursor: pointer;
+        img{
+            height: 5vh;
+            width: 5vh;
+            border-radius: 5vh;
+            box-shadow: 1px 1px 15px #A4A4A4;
+        }
+    }
+}
+.itemSolve{
+    height: 70vh;
+    .col-7{
+        padding: 0;
+    }
+    .text2{
+        height: 24vh;
+    }
+    img{
+        width: 100%;
+        height: 40vh;
+        border-radius: 5px;
+    }
+    .send{
+        input{
+            border-style: none;
+            border-radius: 25px;
+            width: 100%;
+            margin-top: 10px;
+            padding-left: 5px;
+            &:focus{
+                outline: none;
+            }
+        }
+        i{
+            background: white;
+            border-radius: 50px;
+            padding: 15px;
+            cursor: pointer;
+            &:hover{
+                box-shadow: 1px 1px 15px #A4A4A4;
+            }
+        }
+    }
+}
