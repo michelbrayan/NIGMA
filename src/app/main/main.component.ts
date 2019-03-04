@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { query, animateChild, style, state, animate, transition, trigger} from '@angular/animations';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 @Component({
   selector: 'app-main',
@@ -7,19 +7,24 @@ import { query, animateChild, style, state, animate, transition, trigger} from '
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+  enigmas : any;
   enigma : any;
-  constructor(){}
-  ngOnInit(){}
+  constructor(private db: AngularFireDatabase){}
+  ngOnInit(){
+    this.db.list('nigma').valueChanges().subscribe(data =>{this.enigmas = data; console.log(this.enigmas)} );
+  }
   enigmaClick(e){
-    this.enigma = {key : e, name : 'michel', title : 'PRIMEIRO ENIGMA', text : 'ESSE TEXTO É DO PRIMEIRO ENIGMA É UM TEXTO DE EXEMPLO E NÃO DEVE SER CONSIDERADO COMO UM ENIGMA MAS SIM COMO UM TESTE', pass : 'senha'};
-    console.log(this.enigma);
+    this.enigma = this.enigmas[e];
+  }
+  enigmaSearch(){
+    var inputValue = (<HTMLInputElement>document.getElementById('search')).value;
   }
   enigmaSolve(){
     var inputValue = (<HTMLInputElement>document.getElementById('solve')).value;
     if( inputValue == this.enigma.pass){
-      console.log("teste");
+      alert("VOCÊ ACERTOU A SENHA!!!!");
     }else{
-      console.log("error");
+      alert("VOCÊ ERROU!!!!");
     }
   }
 }

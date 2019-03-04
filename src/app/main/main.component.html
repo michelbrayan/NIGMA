@@ -11,7 +11,6 @@
           </div>
         </div>
         <div class="text2">
-
         </div>
         <div class="row send">
           <div class="col-10">
@@ -24,31 +23,20 @@
       </div>
     </div>
     <div class="solve list col-5">
-      <div class="row itemList" (click)="enigmaClick(1)">
+      <div class="butons">
+        <button class="btn btn-info">Criar</button>
+        <button class="btn btn-success ml-2">Editar</button>
+        <input  class="ml-5" type="text" id="search">
+        <i class="fas fa-search ml-2 search" title="procurar" (click)="enigmaSearch()"></i>
+      </div>
+      <div *ngFor="let e of enigmas" class="row itemList" (click)="enigmaClick(e.key)">
         <div class="col-2 profileImg ">
           <img src="../../assets/img/profile.png" alt="imagem de perfil">
         </div>
         <div class="col-10 title">
-          <p>TITLE ENIGMA TESTE</p>
+          <p>{{e.title}}</p>
         </div>
       </div>
-      <div class="row itemList" (click)="enigmaClick(1)">
-          <div class="col-2 profileImg ">
-            <img src="../../assets/img/profile.png" alt="imagem de perfil">
-          </div>
-          <div class="col-10 title">
-            <p>TITLE ENIGMA TESTE</p>
-          </div>
-        </div>
-        <div class="row itemList" (click)="enigmaClick(1)">
-            <div class="col-2 profileImg ">
-              <img src="../../assets/img/profile.png" alt="imagem de perfil">
-            </div>
-            <div class="col-10 title">
-              <p>TITLE ENIGMA TESTE</p>
-            </div>
-          </div>
-          
     </div>
   </div>
 </div>

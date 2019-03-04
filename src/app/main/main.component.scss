@@ -88,3 +88,23 @@
         }
     }
 }
+#search{
+    border-style: none;
+    border-radius: 25px;
+    width: 40%;
+    margin-top: 10px;
+    padding-left: 5px;
+    &:focus{
+        outline: none;
+    }
+}
+.butons{
+    i{
+        cursor: pointer;
+        border-radius: 15px;
+        padding: 5px;
+        &:hover{
+            box-shadow: 1px 1px 15px #A4A4A4;
+        }
+    }
+}
