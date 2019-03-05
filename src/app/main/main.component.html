@@ -1,41 +1,47 @@
 <div class="container">
-  <div class="row back">
-    <div class="create list col-5">
-      <div *ngIf="enigma" class="itemSolve">
-        <div class="row">
-          <div class="col-5">
-              <img src="../../assets/img/owl.jpg" alt="imagem de perfil">
-          </div>
-          <div class="col-7">
-            <p>{{enigma.text}}</p>
-          </div>
-        </div>
-        <div class="text2">
-        </div>
-        <div class="row send">
-          <div class="col-10">
-            <input type="text" id="solve">
-          </div>
-          <div class="col-2">
-            <i class="fas fa-paper-plane" title="enviar" (click)="enigmaSolve()"></i>
-          </div>
-        </div>
-      </div>
+  <div *ngIf="show[0]" class="divSolve" @fade>
+    <div class="topSolve">
+        <button class="btn btn-info" (click)="showText()">
+          <i class="fas fa-scroll"></i>
+        </button>
+        <button class="btn btn-success ml-1" (click)="showImage()">
+          <i class="far fa-images"></i>
+        </button>
     </div>
-    <div class="solve list col-5">
-      <div class="butons">
-        <button class="btn btn-info">Criar</button>
-        <button class="btn btn-success ml-2">Editar</button>
-        <input  class="ml-5" type="text" id="search">
-        <i class="fas fa-search ml-2 search" title="procurar" (click)="enigmaSearch()"></i>
+    <div class="midSolve">
+        <p *ngIf="show[1]">{{enigma.text}}</p>
+        <img *ngIf="show[2]" src="../../assets/img/owl.jpg" alt="imagem de perfil">
+        <form *ngIf="show[3]">
+          <input type="text" formControlName="titulo">
+          <textarea formControlName="texto" cols="30" rows="10">
+          </textarea>
+        </form>
       </div>
-      <div *ngFor="let e of enigmas" class="row itemList" (click)="enigmaClick(e.key)">
-        <div class="col-2 profileImg ">
-          <img src="../../assets/img/profile.png" alt="imagem de perfil">
-        </div>
-        <div class="col-10 title">
-          <p>{{e.title}}</p>
-        </div>
+    <div class="botSolve" >
+      <input type="text" id="solve">
+      <button class="btn btn-success ml-2" (click)="enigmaSolve()" title="enviar">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+  <!-- DIV LISTA DE ENIGMAS -->
+  <div class="divList">
+    <div class="buttons">
+      <button class="btn btn-info" (click)="enigmaEdit()">
+        <i class="far fa-edit"></i>
+      </button>
+      <button class="btn btn-success ml-1" (click)="enigmaCreate()">
+        <i class="fas fa-plus"></i>
+      </button>
+      <input class="ml-1" type="text" id="search">
+      <button class="btn btn-warning ml-1" (click)="enigmaSearch()" title="procurar">
+        <i class="fas fa-search ml-1 search"></i>
+      </button>
+    </div>
+    <div class="listEnigmas">
+      <div *ngFor="let e of enigmas" class="itemList" (click)="enigmaClick(e.key)">
+        <img class="profileImg" src="../../assets/img/profile.png" alt="imagem de perfil"  @fade>
+        <p class="title" @fade>{{e.title}}</p>
       </div>
     </div>
   </div>
